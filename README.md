@@ -1,4 +1,4 @@
-# Notification System
+# Notification System - FE
 Challenge to build a basic Notification system.
 
 ### Details
