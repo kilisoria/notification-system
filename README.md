@@ -1,5 +1,5 @@
-# Notification System - BE
-Challenge to build a BE API for a basic Notification system.
+# Notification System - FE
+Challenge to build the FE for a basic Notification system.
 
 ### Details
 https://drive.google.com/file/d/1Xd_UrewTxWH5kCJES7A06lKnVE8cFLc9/view?usp=sharing
