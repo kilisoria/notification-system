@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Notification System - BE
+Challenge to build a BE API for a basic Notification system.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Details
+https://drive.google.com/file/d/1Xd_UrewTxWH5kCJES7A06lKnVE8cFLc9/view?usp=sharing
 
-## Available Scripts
+### Design 
 
-In the project directory, you can run:
+<img width="824" alt="image" src="https://github.com/kilisoria/notification-system/assets/1625715/adb10a04-3ea1-45b6-ba6c-dcfee0af0997">
 
 ### `yarn start`
 
@@ -28,19 +30,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
