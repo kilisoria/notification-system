@@ -2,7 +2,7 @@ import Axios from "axios";
 
 const getNotifications = async () => {
     const response = await Axios({
-        url: 'http://localhost:3000/notifications/findAll',
+        url: `${process.env.REACT_APP_API_URL}/notifications/findAll`,
         method: 'GET',
     });
     
@@ -12,7 +12,7 @@ const getNotifications = async () => {
 const addNotification = async (notification) => {
     try {
         const response = await Axios({
-            url: 'http://localhost:3000/notifications',
+            url: `${process.env.REACT_APP_API_URL}/notifications`,
             method: 'POST',
             data: notification
         });

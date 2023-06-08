@@ -2,7 +2,7 @@ import Axios from "axios";
 
 const getChannels = async () => {
     const response = await Axios({
-        url: 'http://localhost:3000/channels/findAll',
+        url: `${process.env.REACT_APP_API_URL}/channels/findAll`,
         method: 'GET',
     });
     

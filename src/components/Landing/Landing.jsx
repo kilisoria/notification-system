@@ -23,7 +23,7 @@ const Landing = () => {
           <ListItem divider>
               <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<ContentCopyIcon sx={{ cursor: 'pointer' }} />}
                onClick={() => {
-                window.open('https://drive.google.com/file/d/1Xd_UrewTxWH5kCJES7A06lKnVE8cFLc9/view?usp=drive_link', '_blank');
+                window.open('https://docs.google.com/document/d/1LDZjLi84XvQYJZSm7YHSZfHpFQhcMwptq9zVoBlDfsM/edit?usp=sharing', '_blank');
             }}>
               Implementation Details
               </Button>

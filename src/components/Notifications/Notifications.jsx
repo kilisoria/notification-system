@@ -20,6 +20,10 @@ function createData(id, message, userName, userEmail, userPhoneNumber, channelNa
 
 const Notifications = ({ notifications }) => {
     const rows = useMemo(() => {
+        if (!notifications || notifications.length <= 0) {
+            return;
+        }
+        
         const formattedRows = [];
 
         notifications.forEach(n => {

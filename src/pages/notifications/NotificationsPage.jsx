@@ -17,10 +17,6 @@ const NotificationsPage = ({ }) => {
         appContextValue.setTabSelectedValue(TABS.NOTIFICATIONS);
     }, [appContextValue])
 
-    if (!notifications || notifications.length === 0) {
-        return null;
-    }
-
     return <Notifications notifications={notifications} />;
 };
 
