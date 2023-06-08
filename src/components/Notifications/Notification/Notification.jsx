@@ -1,5 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 
+import PropTypes from 'prop-types';
+
 import {
     Alert,
     Stack,
@@ -144,5 +146,13 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
         </Stack>
     )
 };
+
+Notification.propTypes = {
+    notificationResult: PropTypes.object,
+    onCancel: PropTypes.func,
+    onSave: PropTypes.func,
+    channels: PropTypes.array,
+    categories: PropTypes.array,
+}
 
 export default Notification;
