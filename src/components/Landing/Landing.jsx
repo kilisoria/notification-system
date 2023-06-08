@@ -27,17 +27,26 @@ const Landing = () => {
           </Alert>
            <List sx={style} component="nav" aria-label="mailbox folders">
           <ListItem divider>
-            <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<ContentCopyIcon sx={{ cursor: 'pointer' }} />}>
+              <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<ContentCopyIcon sx={{ cursor: 'pointer' }} />}
+               onClick={() => {
+                window.open('https://drive.google.com/file/d/1Xd_UrewTxWH5kCJES7A06lKnVE8cFLc9/view?usp=drive_link', '_blank');
+            }}>
               Implementation Details
-            </Button>
+              </Button>
           </ListItem>
           <ListItem divider>
-            <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<GitHubIcon sx={{ cursor: 'pointer' }} />}>
+              <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<GitHubIcon sx={{ cursor: 'pointer' }} />}
+                onClick={() => {
+                window.open('https://github.com/kilisoria/notification-system-be', '_blank');
+            }}>
               BE Repository
             </Button>
           </ListItem>
           <ListItem divider>
-            <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<GitHubIcon sx={{ cursor: 'pointer' }} />}>
+              <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<GitHubIcon sx={{ cursor: 'pointer' }} />}
+              onClick={() => {
+                window.open('https://github.com/kilisoria/notification-system-fe', '_blank');
+            }}>
               FE Repository
             </Button>
           </ListItem>
