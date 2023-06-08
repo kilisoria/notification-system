@@ -6,6 +6,6 @@ test('render the Landing component', async () => {
     };
     render(<Landing posts={postsMocked} />);
 
-    const imgs = screen.getAllByRole('img');
-    expect(imgs.length).toBe(4);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons.length).toBe(4);
 });

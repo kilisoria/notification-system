@@ -9,6 +9,28 @@ const getNotifications = async () => {
     return await response.data;
 }
 
+const addNotification = async (notification) => {
+    try {
+        const response = await Axios({
+            url: 'http://localhost:3000/notifications',
+            method: 'POST',
+            data: notification
+        });
+
+        await response.data;
+
+        return {
+            success: true,
+        }
+        
+    } catch (error) {
+        return {
+            error: error?.response?.data?.message
+        }
+    }
+}
+
 export {
     getNotifications,
+    addNotification,
 }

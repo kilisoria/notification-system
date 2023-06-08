@@ -1,39 +1,23 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { addPost as serviceAddPost, getNotifications, getPostsSelected, getPostByTitle } from '../actions/notifications';
+import { getNotifications } from '../actions/notifications';
 
-const usePosts = () => {
+const useNotifications = () => {
     const [notifications, setNotifications] = useState([]);
 
     useEffect(() => {
-        return setNotifications(getNotifications());
+        const loadNotifications = async () => {
+            const notificationsData = await getNotifications();
+            setNotifications(notificationsData);
+        }
+
+        loadNotifications();
     }, []);
 
-    // const postsSelected = useMemo(() => {
-    //     return getPostsSelected();
-    // }, []);
-
-    // const redirectToPostView = (title) => {
-    //     const post = getPostByTitle(title);
-    //     if (!post) {
-    //         // TODO: Shows an error message.
-    //         return;
-    //     }
-
-    //     window.location.replace(`/post/${post.id}/view`);
-    // };
-
-    // const addNotification = (post) => {
-    //     serviceAddPost(post);
-    // };
-    
 
     return {
-        // addNotification,
         notifications,
-        // postsSelected,
-        // redirectToPostView
     }
 };
 
-export default usePosts;
+export default useNotifications;

@@ -18,7 +18,7 @@ function createData(id, message, userName, userEmail, userPhoneNumber, channelNa
   return { id, message, userName, userEmail, userPhoneNumber, channelName, subscribedName, sentAt };
 }
 
-const BaseTable = ({ notifications }) => {
+const Notifications = ({ notifications }) => {
     const rows = useMemo(() => {
         const formattedRows = [];
 
@@ -32,7 +32,7 @@ const BaseTable = ({ notifications }) => {
         })
 
         return formattedRows;
-    }, []);
+    }, [notifications]);
 
     return (
         <TableContainer component={Paper}>
@@ -46,7 +46,7 @@ const BaseTable = ({ notifications }) => {
             </Stack>
             <Table sx={{ width: '100%', display: 'inline-table', marginTop: '30px' }} aria-label="simple table">
                 <TableHead>
-                    <TableRow>
+                    <TableRow sx={{ fontWeight: 'bold', backgroundColor: 'rgb(229, 246, 253)' }}>
                         <TableCell>Message</TableCell>
                         <TableCell align="center">User</TableCell>
                         <TableCell align="center">Email</TableCell>
@@ -79,4 +79,4 @@ const BaseTable = ({ notifications }) => {
     );
 };
 
-export default BaseTable;
+export default Notifications;

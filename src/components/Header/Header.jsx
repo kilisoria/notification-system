@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import CreateIcon from '@mui/icons-material/Create';
+import React, { useContext } from 'react';
 
 import {
   Box,
@@ -12,6 +11,7 @@ import HeaderTabs from './HeaderTabs';
 
 import { TABS } from '../../common/constants';
 
+// eslint-disable-next-line no-empty-pattern
 const Header = ({}) => {
   const appContextValue = useContext(AppContext);
   const { tabSelected } = appContextValue;

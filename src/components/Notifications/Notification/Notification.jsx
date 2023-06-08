@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 import {
     Alert,
@@ -6,13 +6,12 @@ import {
     Button,
     Snackbar,
     MenuItem,
+    Select
 } from '@mui/material';
 
 import { SelectLabel } from "../styled";
 
-import Select from '@mui/material/Select';
-
-const Notification = ({ onCancel, onSave, channels, categories }) => {
+const Notification = ({ notificationResult, onCancel, onSave, channels, categories }) => {
     const [message, setMessage] = useState('');
     const [channel, setChannel] = useState('');
     const [category, setCategory] = useState('');
@@ -21,9 +20,30 @@ const Notification = ({ onCancel, onSave, channels, categories }) => {
     const [dialogSeverety, setDialogSeverety] = useState('success');
     const [dialogMessage, setDialogMessage] = useState('');
 
+    useEffect(() => {
+        if (!notificationResult) {
+            return;
+        }
+
+        const { success, error } = notificationResult;
+
+        if (error) {
+            setDialogMessage(error);
+            setDialogSeverety('error');
+            setOpen(true);
+        }
+
+        if (success) {
+            setDialogMessage('Your message has just been sent successfully!');
+            setDialogSeverety('success');
+            setOpen(true);
+        }
+
+    }, [notificationResult])
+
     const handleSave = useCallback(() => {
         if (!message || !channel || !category) {
-            setDialogMessage('You must enter the message, channel, and category please!');
+            setDialogMessage('You must enter the message, a channel, and a category please!');
             setDialogSeverety('error');
             setOpen(true);
             
@@ -37,10 +57,6 @@ const Notification = ({ onCancel, onSave, channels, categories }) => {
         };
         onSave(notificationData);
 
-        setDialogMessage('Your message has just been sent successfully!');
-        setDialogSeverety('success');
-        setOpen(true);
-
         setMessage('');
         setChannel('');
         setCategory('');
@@ -48,23 +64,23 @@ const Notification = ({ onCancel, onSave, channels, categories }) => {
 
     const handleCancel = useCallback(() => {
         onCancel();
-    }, []);
+    }, [onCancel]);
 
-    const handleClose = (event, reason) => {
+    const handleClose = useCallback((event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
 
         setOpen(false);
-    };
+    }, [])
 
-    const handleChannelChange = event => {
+    const handleChannelChange = useCallback(event => {
         setChannel(event.target.value);
-    };
+    }, []);
 
-    const handleCategoryChange= event => {
+    const handleCategoryChange = useCallback(event => {
         setCategory(event.target.value);
-    };
+    }, []);
 
     return (
         <Stack
@@ -75,7 +91,7 @@ const Notification = ({ onCancel, onSave, channels, categories }) => {
             <Alert severity="info">Hey! Preparing a new Message. Go!</Alert>
             <textarea rows="10"
                 value={message}
-                placeholder='Enter your comment or question here!'
+                placeholder='Enter your comments or details here!'
                 style={{ fontSize: 16, fontFamily: '"Roboto","Helvetica","Arial",sans-serif' }}
                 onChange={(event) => {
                     setMessage(event.target.value);

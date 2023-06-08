@@ -1,22 +1,16 @@
 import React from 'react';
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-
-import Button from '@mui/material/Button';
+import {
+  List,
+  ListItem,
+  Alert,
+  Stack,
+  Button
+} from '@mui/material';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SendIcon from '@mui/icons-material/Send';
-
-const style = {
-  width: '100%',
-  maxWidth: 360,
-  bgcolor: 'background.paper',
-};
 
 const Landing = () => {
     return (
@@ -25,7 +19,7 @@ const Landing = () => {
           <Alert severity="info">
             <strong>Notification System!</strong>&nbsp; This is a challenge code — <strong>check it out!</strong>
           </Alert>
-           <List sx={style} component="nav" aria-label="mailbox folders">
+           <List component="nav" aria-label="mailbox folders">
           <ListItem divider>
               <Button variant="text" sx={{ textTransform: 'capitalize' }} startIcon={<ContentCopyIcon sx={{ cursor: 'pointer' }} />}
                onClick={() => {

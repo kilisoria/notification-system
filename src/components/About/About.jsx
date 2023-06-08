@@ -6,6 +6,7 @@ import {
     Divider
 } from '@mui/material';
 
+// eslint-disable-next-line no-empty-pattern
 const About = ({ }) => {
     return (
         <Stack
