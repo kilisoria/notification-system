@@ -3,7 +3,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 
 import { useNavigate } from "react-router-dom";
-import useChannels from '../../../hooks/useChannels';
 import useCategories from '../../../hooks/useCategories';
 
 import { addNotification } from '../../../actions/notifications';
@@ -20,7 +19,6 @@ const NotificationPage = ({ }) => {
     const navigate = useNavigate();
 
     const [notificationResult, setNotificationResult] = useState({});
-    const { channels } = useChannels();
     const { categories } = useCategories();
 
     useEffect(() => {
@@ -43,7 +41,6 @@ const NotificationPage = ({ }) => {
             notificationResult={notificationResult}
             onSave={handleSave}
             onCancel={() => navigate('/notifications')}
-            channels={channels}
             categories={categories} />
     )
 };

@@ -13,9 +13,8 @@ import {
 
 import { SelectLabel } from "../styled";
 
-const Notification = ({ notificationResult, onCancel, onSave, channels, categories }) => {
+const Notification = ({ notificationResult, categories, onCancel, onSave }) => {
     const [message, setMessage] = useState('');
-    const [channel, setChannel] = useState('');
     const [category, setCategory] = useState('');
 
     const [open, setOpen] = useState(false);
@@ -44,8 +43,8 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
     }, [notificationResult])
 
     const handleSave = useCallback(() => {
-        if (!message || !channel || !category) {
-            setDialogMessage('You must enter the message, a channel, and a category please!');
+        if (!message || !category) {
+            setDialogMessage('You must enter the message, and a category please!');
             setDialogSeverety('error');
             setOpen(true);
             
@@ -54,15 +53,13 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
 
         const notificationData = {
             message,
-            channel,
             subscribed: category,
         };
         onSave(notificationData);
 
         setMessage('');
-        setChannel('');
         setCategory('');
-    }, [onSave, message, channel, category]);
+    }, [onSave, message, category]);
 
     const handleCancel = useCallback(() => {
         onCancel();
@@ -75,10 +72,6 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
 
         setOpen(false);
     }, [])
-
-    const handleChannelChange = useCallback(event => {
-        setChannel(event.target.value);
-    }, []);
 
     const handleCategoryChange = useCallback(event => {
         setCategory(event.target.value);
@@ -114,22 +107,7 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
                 {categories && categories.map((category) => (
                     <MenuItem key={category._id} value={category._id}>{category.name}</MenuItem>
                 ))}
-            </Select>
-            <SelectLabel>Channel</SelectLabel>
-            <Select
-                id="channel-select"
-                value={channel}
-                onChange={handleChannelChange}
-                placeholder="Channel"
-                style={{ fontSize: 16, textAlign: 'left', fontFamily: '"Roboto","Helvetica","Arial",sans-serif' }}
-            >
-                <MenuItem value="">
-                    <em>None</em>
-                </MenuItem>
-                {channels && channels.map((channel) => (
-                    <MenuItem key={channel._id} value={channel._id}>{channel.name}</MenuItem>
-                ))}
-            </Select>
+            </Select>           
             <Stack direction="row">
                 <Button variant="contained" color="primary" sx={{ width: 160 }} onClick={handleSave}>
                     Save
@@ -149,10 +127,9 @@ const Notification = ({ notificationResult, onCancel, onSave, channels, categori
 
 Notification.propTypes = {
     notificationResult: PropTypes.object,
+    categories: PropTypes.array,
     onCancel: PropTypes.func,
     onSave: PropTypes.func,
-    channels: PropTypes.array,
-    categories: PropTypes.array,
 }
 
 export default Notification;
